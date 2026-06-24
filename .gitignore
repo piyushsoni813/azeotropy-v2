@@ -1,3 +1,41 @@
+# ---- Secrets & environment -------------------------------------------------
+# Never commit these. They hold passwords, keys, and config.
+.env
+.env.*
+!.env.example
 
-# Ignore compiled Python files
-*.pyc
+# ---- Database --------------------------------------------------------------
+# The DB holds real user data and belongs on a server, not in git.
+*.sqlite3
+*.sqlite3-journal
+*.db
+
+# ---- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# ---- Virtual environments --------------------------------------------------
+env/
+venv/
+.venv/
+ENV/
+
+# ---- Django runtime artifacts ----------------------------------------------
+# collectstatic output (regenerated on deploy) and runtime logs.
+staticfiles/
+logs/
+*.log
+
+# User-uploaded media. Keep the folder, ignore its contents.
+media/*
+!media/.gitkeep
+
+# ---- Editor / OS junk ------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
