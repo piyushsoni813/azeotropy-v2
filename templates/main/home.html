@@ -1,0 +1,175 @@
+{% include "main/header.html" %}
+<!-- {% load static %} should be at the top if you're using static files -->
+<!DOCTYPE html>
+<html lang="en" data-theme="lemonade">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy 2024-25</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+{% block content %}
+<body>
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+         <!-- Home Section -->
+         <section id="home" class="grid place-content-center h-screen bg-fixed">
+            <div class="gap-5 p-0">
+               <div class="grid px-5 pt-5 place-content-center introtext">
+                  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 192" fill-rule="evenodd" clip-rule="evenodd" class="fill-white azeoLogo">
+                     <path d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269" />
+                  </svg>
+               </div>
+               <div class="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black big-shoulders-text tracking-tighter introtext break-normal uppercase text-white">
+                  The Chemical Engineering Symposium
+               </div>
+            </div>
+         </section>
+
+         <!-- SVG Filters -->
+         <svg style="position: absolute; width: 0; height: 0;">
+            <defs>
+               <filter id="blurFilter">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+               </filter>
+            </defs>
+         </svg>
+
+         <!-- About Section -->
+         <section id="about" class="py-32 lg:mx-28">
+            <svg class="hidden">
+               <defs>
+                  <filter id="goo-1">
+                     <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+                     <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 13 -6" result="goo"></feColorMatrix>
+                     <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+                  </filter>
+               </defs>
+            </svg>
+            <h2 data-filter="goo-1" class="size-large end font-1 text-left instrument-serif-regular tracking-tight blur-element subpixel-antialiased text-6xl md:text-9xl mb-20 mx-5 sm:mx-10">About Us</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 mb-10 mx-5 gap-5">
+               <div class="grid lg:row-span-2 rounded-xl blur-element place-items-center">
+                  <video width="480" height="270" autoplay muted loop class="rounded-xl">
+                     <source src="{% static 'pics/AZeotropy 2024-25 480p ffmpeg.mp4' %}" type="video/mp4">
+                  </video>
+               </div>
+               <div data-filter="goo-1" data-script="filter1" class="lg:col-span-2 text-left text-xl md:text-5xl tracking-wide blur-element jost">About AZeotropy</div>
+               <div class="container lg:col-span-2 text-justify blur-element font-semibold">
+                  <p class="text-base leading-relaxed mb-4 blur-element">AZeotropy, Asia's largest Chemical Engineering Symposium, is a unique blend of intriguing competitions, lecture series, panel discussions, exhibitions, workshops, and other learning-related activities. As a non-profit organization, we aim to bridge the gap between students, industry, and academia.</p>
+                  <p class="text-base leading-relaxed mb-4 blur-element">Our mission is to manifest the spirit of Chemical Engineering in young students from all corners of India. We encourage participation from over 350 colleges, 50+ industrialists, and welcome an average footfall of 12,000 attendees.</p>
+                  <p class="text-base leading-relaxed blur-element">The symposium has hosted lectures by eminent personalities, including Gerald Fuller, Professor of Chemical Engineering at Stanford University, Douglas Buttrey, Professor at the Department of Chemical & Biomolecular Engineering, University of Delaware, Abraham D. Stroock, Cornell University, and Harsha Bhogle, Indian cricket commentator and journalist and more.</p>
+               </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 mx-5 gap-5">
+               <div class="rounded-xl py-16">
+                  <p class="text-left text-3xl md:text-5xl tracking-tighter mx-10 blur-element font-bold">
+                     <span class="count-up">300</span>+
+                  </p>
+                  <p class="text-left text-base md:text-3xl tracking-normal mx-10 blur-element instrument-serif-regular-italic">College Ambassadors</p>
+               </div>
+               <div class="rounded-xl py-16">
+                  <p class="text-left text-3xl md:text-5xl tracking-tighter mx-10 blur-element font-bold">
+                     <span class="count-up">350</span>+
+                  </p>
+                  <p class="text-left text-base md:text-3xl tracking-normal mx-10 blur-element instrument-serif-regular-italic">Colleges</p>
+               </div>
+               <div class="rounded-xl py-16">
+                  <p class="text-left text-3xl md:text-5xl tracking-tighter mx-10 blur-element font-bold">
+                     <span class="count-up">12000</span>+
+                  </p>
+                  <p class="text-left text-base md:text-3xl tracking-normal mx-10 blur-element instrument-serif-regular-italic">Footfall</p>
+               </div>
+            </div>
+         </section>
+
+         <!-- Campus Ambassador Section -->
+         <section id="campus-ambassador" class="py-32 lg:px-28 bg-base-300">
+            <svg class="hidden">
+               <defs>
+                  <filter id="goo-1">
+                     <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+                     <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 13 -6" result="goo"></feColorMatrix>
+                     <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+                  </filter>
+               </defs>
+            </svg>
+            <h2 data-filter="goo-1" class="size-large end font-1 text-left text-6xl md:text-9xl instrument-serif-regular tracking-tight mb-20 blur-element md:px-0 mx-5 sm:mx-0">Campus Ambassador</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 mb-10 mx-5 lg:mx-0 gap-5 blur-element">
+               <div class="lg:col-span-2 text-left text-xl md:text-5xl tracking-wide blur-element jost">Connect With Us</div>
+               <div class="md:row-span-2 bg-local rounded-xl blur-element bg-white bg-center bg-cover bg-no-repeat"></div>
+               <div class="container md:col-span-2 text-justify font-semibold">
+                  <p class="text-base leading-relaxed mb-4 blur-element">Through our Campus Ambassador Program, AZeotropy offers a unique opportunity to showcase your leadership and organizational skills. As a Campus Ambassador, you'll serve as AZeotropy's representative at your college, connecting with students interested in participating in our events, competitions, and workshops.</p>
+                  <br>
+                  <p class="text-base leading-relaxed blur-element">We invite students from colleges with chemical, petrochemical, or petroleum engineering programs to register for this exciting opportunity.</p>
+               </div>
+               <a href="{% url 'ca_portal:index' %}" class="btn btn-neutral w-3/5">Visit CA Portal</a>
+            </div>
+            <div class="flex flex-wrap columns-3xs gap-5 px-10 mb:px-0 bg-white py-10 rounded-3xl mx-5 lg:mx-0 border-2 border-black">
+               <div class="grow h-36 w-56 bg-white bg-center bg-contain bg-no-repeat logo-reliance"></div>
+               <div class="grow h-36 w-56 bg-white bg-center bg-contain bg-no-repeat logo-alkyl-amines"></div>
+               <div class="grow h-36 w-56 bg-white bg-center bg-contain bg-no-repeat logo-jay-finechem"></div>
+               <div class="grow h-36 w-56 bg-white bg-center bg-contain bg-no-repeat logo-deepak-nitrite"></div>
+               <div class="grow h-36 w-56 bg-white bg-center bg-contain bg-no-repeat logo-epsilon"></div>
+            </div>
+         </section>
+
+         <section id="portfolio" class="py-32 lg:mx-0">
+            <div class="text-center text-3xl md:text-6xl mb-20 blur-element instrument-serif-regular-italic tracking-tight subpixel-antialiased">Eminent Personalities</div>
+            <div class="container-fluid">
+                <div class="horiz-gallery-wrapper">
+                    <div class="horiz-gallery-strip text-3xl">
+                        <div class="project-wrap w-20" data-speed-x="1.0"></div>
+                        <div class="project-wrap w-[50vw]" data-speed-x="1.0">
+                            <div class="flex items-end h-[32vw] max-h-full bg-cover bg-center rounded-3xl professor-abraham group">
+                                <div class="flex px-10 text-justify align-baseline text-sm rounded-3xl w-full h-1/2 items-end bg-gradient-to-t from-neutral opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-neutral-content">
+                                    <div class="pb-5">A great talk by Prof. Abraham Stroock on his work measuring dynamics with a Microfluidic sensor that itself borrows design principles from the vascular structure of plants. He is Gordon L. Dibble '50 Professor and William C. Hooey Director of the Smith School of Chemical and Biomolecular Engineering at Cornell University.</div>
+                                </div>
+                            </div>
+                            <h2 class="mt-7 instrument-serif-regular">Prof. Abraham D. Stroock</h2>
+                        </div>
+                        <div class="project-wrap w-[50vw]" data-speed-x="1.0">
+                            <div class="flex items-end h-[32vw] max-h-full bg-cover bg-center rounded-3xl professor-sangtae group">
+                                <div class="flex px-10 text-justify align-baseline text-sm rounded-3xl w-full h-1/2 items-end bg-gradient-to-t from-neutral opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-neutral-content">
+                                    <div class="pb-5">Sangtae (Sang) Kim is a Distinguished Professor at Purdue University, recognized for his pioneering work in microfluidics and fluidic self-assembly. His research has revolutionized the production of RFID tags and other microelectronic devices. Prior to joining Purdue, he held leadership roles in industry and government, including at the National Science Foundation. Dr. Kim is a member of the National Academy of Engineering.</div>
+                                </div>
+                            </div>
+                            <h2 class="mt-7 instrument-serif-regular">Prof. Sangtae Kim</h2>
+                        </div>
+                        <div class="project-wrap w-[50vw]" data-speed-x="1.0">
+                            <div class="flex items-end h-[32vw] max-h-full bg-cover bg-center rounded-3xl professor-rakesh group">
+                                <div class="flex px-10 text-justify align-baseline text-sm rounded-3xl w-full h-1/2 items-end bg-gradient-to-t from-neutral opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-neutral-content">
+                                    <div class="pb-5">Rakesh Agrawal, Winthrop E. Stone Distinguished Professor at Purdue University, is a leading figure in chemical engineering known for his transformative work in separations, gas liquefaction, and renewable energy. His innovations, including the APX process for natural gas, have significantly enhanced industrial efficiency and sustainability.</div>
+                                </div>
+                            </div>
+                            <h2 class="mt-7 instrument-serif-regular">Prof. Rakesh Aggarwal</h2>
+                        </div>
+                        <div class="project-wrap w-[50vw]" data-speed-x="1.0">
+                            <div class="flex items-end h-[32vw] max-h-full bg-cover bg-center rounded-3xl professor-asit group">
+                                <div class="flex px-10 text-justify align-baseline text-sm rounded-3xl w-full h-1/2 items-end bg-gradient-to-t from-neutral opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-neutral-content">
+                                    <div class="pb-5">Dr. Kishore Dongaonkar, a distinguished professor at [Insert University], is a leading expert in chemical engineering. His innovative work in process optimization and sustainable technologies has boosted industrial efficiency. Known for advancements in [specific innovation, e.g., catalytic processes], he has authored key publications and patents. His contributions have made a lasting impact on the field</div>
+                                </div>
+                            </div>
+                            <h2 class="mt-7 instrument-serif-regular">Dr. Kishore Dongaonkar</h2>
+                        </div>
+                        <div class="project-wrap w-28" data-speed-x="1.0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         <!-- Footer Included Here -->
+         {% include "main/footer.html" %}
+      </div> <!-- #smooth-content -->
+   </div> <!-- #smooth-wrapper -->
+
+   <!-- Scripts -->
+   <script src="{% static 'js/script.js' %}" type="module"></script>
+   <script src="{% static 'js/main.js' %}" type="module"></script>
+   <script type="text/javascript" src="{% static 'js/gsap-3.12.5/package/dist/all.js' %}"></script>
+   <script src="{% static 'js/splitting.min.js' %}" type="module"></script>
+</body>
+{% endblock %}
+</html>

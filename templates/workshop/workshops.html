@@ -1,0 +1,705 @@
+{% include "main/header.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy2024-25</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>.introtext, .introtext .char {visibility: hidden;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+      <section
+          id="home"
+          class="grid place-content-center h-screen bg-local bg-cover"
+        >
+          <div class="gap-5 p-0">
+            <div class="grid px-5 pt-5 place-content-center introtext">
+              <svg
+                width="200"
+                height="200"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 300 192"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                class="fill-white azeoLogo"
+              >
+                <path
+                  d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269"
+                />
+              </svg>
+            </div>
+            <div
+              class="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black big-shoulders-text tracking-tight introtext break-normal uppercase text-white"
+            >
+              Workshops
+            </div>
+          </div>
+        </section>
+        <svg style="position: absolute; width: 0; height: 0">
+          <defs>
+            <filter id="blurFilter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+            </filter>
+          </defs>
+        </svg>
+        <section id="about" class="py-32 lg:px-28">
+          <svg class="hidden">
+            <defs>
+              <filter id="goo-1">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="0"
+                  result="blur"
+                ></feGaussianBlur>
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0
+                           0 1 0 0 0
+                           1 0 1 0 0
+                           0 0 0 13 -6"
+                  result="goo"
+                ></feColorMatrix>
+                <feComposite
+                  in="SourceGraphic"
+                  in2="goo"
+                  operator="atop"
+                ></feComposite>
+              </filter>
+            </defs>
+          </svg>
+          <h2
+            data-filter="goo-1"
+            class="size-large end font-1 text-left text-6xl md:text-9xl instrument-serif-regular tracking-tight mb-20 blur-element subpixel-antialiased md:px-5"
+          >
+            Online Workshops
+          </h2>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-3 mb-12 mx-5 gap-5 place-items-stretch"
+          >
+            <!-- MATLAB Workshop -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl matlab-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              MATLAB Workshop
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                Matlab is a numerical computing software that is widely used in
+                chemical engineering for modeling, simulation, and data analysis.
+                It offers a range of built-in functions, toolboxes, and graphical
+                user interfaces for solving complex mathematical problems and
+                building graphical user interfaces. P.S. : Certificates will be
+                provided to all the participants
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch erica-one-regular"
+                onclick="my_modal_1.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_1" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">MATLAB Workshop</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_1"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          Matlab is a numerical computing software widely used in
+                          chemical engineering for modeling, simulation, and data
+                          analysis.
+                        </li>
+                        <li>
+                          Features built-in functions, toolboxes, and graphical user
+                          interfaces for solving complex mathematical problems.
+                        </li>
+                        <li>Certificates provided to all participants.</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_1"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Date: 15/03/2025</li>
+                        <!--<li>Time: [Add event time]</li>-->
+                        <li>Location: Online</li>
+                        <li>Duration: 2 hours</li>
+                        <!--<li>Cost: Free</li>-->
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_1"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+
+            <!-- Python Workshop -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl python-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              Python Workshop
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+              >
+                Python is a versatile programming language widely used in chemical engineering for data analysis, modeling, and simulation. With its extensive libraries such as NumPy, Pandas, and SciPy, Python enables efficient numerical computing, process optimization, and machine learning applications. Its user-friendly syntax and open-source nature make it a powerful tool for engineers and researchers. P.S.: Certificates will be provided to all participants.
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch erica-one-regular"
+                onclick="my_modal_5.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_5" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Python Workshop</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_5"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          Python is a versatile programming language used in chemical engineering for data analysis, modeling, and simulation.
+                        </li>
+                        <li>
+                          Features extensive libraries like NumPy, Pandas, and SciPy for numerical computing, optimization, and machine learning.
+                        </li>
+                        <li>Certificates provided to all participants.</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_5"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Date: 29/10/2024</li>
+                        <li>Time: 7 PM</li>
+                        <li>Location: Online</li>
+                        <li>Duration: 2 hours</li>
+                        <li>Cost: 100 Rs.</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_5"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+          </div>
+        </section>
+        <svg style="position: absolute; width: 0; height: 0">
+          <defs>
+            <filter id="blurFilter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+            </filter>
+          </defs>
+        </svg>
+        <section id="about" class="py-32 lg:px-28 bg-base-300">
+          <svg class="hidden">
+            <defs>
+              <filter id="goo-1">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="0"
+                  result="blur"
+                ></feGaussianBlur>
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0
+                           0 1 0 0 0
+                           1 0 1 0 0
+                           0 0 0 13 -6"
+                  result="goo"
+                ></feColorMatrix>
+                <feComposite
+                  in="SourceGraphic"
+                  in2="goo"
+                  operator="atop"
+                ></feComposite>
+              </filter>
+            </defs>
+          </svg>
+          <h2
+            data-filter="goo-1"
+            class="size-large end font-1 text-left text-6xl md:text-9xl instrument-serif-regular tracking-tight mb-20 blur-element subpixel-antialiased md:px-5"
+          >
+            Offline Workshops
+          </h2>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-3 mb-12 mx-5 gap-5 place-items-stretch"
+          >
+            <!-- DWSIM Workshop -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl dwsim-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              DWSIM Workshop
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+              >
+                DWSIM is a process simulation software that is used in chemical
+                engineering for the design and analysis of chemical processes. It
+                offers a range of features, including thermodynamic models, unit
+                operations, and process simulation tools. It also supports the
+                integration of external code and the creation of custom models.
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch erica-one-regular"
+                onclick="my_modal_2.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_2" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">DWSIM Workshop</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_2"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          DWSIM is a process simulation software used in chemical
+                          engineering for designing and analyzing chemical
+                          processes.
+                        </li>
+                        <li>
+                          Includes thermodynamic models, unit operations, and
+                          process simulation tools, with support for external code
+                          and custom models.
+                        </li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_2"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Date: [Add event date]</li>
+                        <li>Time: [Add event time]</li>
+                        <li>Location: [Add offline location, e.g., IIT Bombay]</li>
+                        <li>Duration: [Add duration, e.g., 3 hours]</li>
+                        <li>Cost: [Add fee, e.g., ₹500]</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_2"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+
+            <!-- OpenModelica Workshop -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl openmodelica-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              OpenModelica Workshop
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+              >
+                OpenModelica is an open-source modeling and simulation software
+                that is used in chemical engineering for the design and
+                optimization of complex systems. It offers a range of modeling
+                languages and simulation tools for dynamic systems, including
+                differential equations, algebraic equations, and discrete events.
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch erica-one-regular"
+                onclick="my_modal_3.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_3" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">OpenModelica Workshop</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_3"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          OpenModelica is an open-source modeling and simulation
+                          software for designing and optimizing complex systems in
+                          chemical engineering.
+                        </li>
+                        <li>
+                          Supports modeling languages and simulation tools for
+                          dynamic systems, including differential and algebraic
+                          equations.
+                        </li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_3"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Date: [Add event date]</li>
+                        <li>Time: [Add event time]</li>
+                        <li>Location: [Add offline location, e.g., IIT Bombay]</li>
+                        <li>Duration: [Add duration, e.g., 3 hours]</li>
+                        <li>Cost: [Add fee, e.g., ₹500]</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_3"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+
+            <!-- OpenFOAM Workshop -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl openfoam-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              OpenFOAM Workshop
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+              >
+                OpenFOAM (Open Field Operation and Manipulation) is a free,
+                open-source computational fluid dynamics software that is used in
+                chemical engineering for the simulation of fluid flow and heat
+                transfer. It offers a range of numerical methods and models for the
+                simulation of complex fluid dynamics problems, including
+                turbulence, combustion, and multiphase flow.
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch erica-one-regular"
+                onclick="my_modal_4.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_4" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">OpenFOAM Workshop</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_4"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          OpenFOAM is a free, open-source computational fluid
+                          dynamics software used in chemical engineering for
+                          simulating fluid flow and heat transfer.
+                        </li>
+                        <li>
+                          Offers numerical methods and models for complex fluid
+                          dynamics problems like turbulence, combustion, and
+                          multiphase flow.
+                        </li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_4"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Date: [Add event date]</li>
+                        <li>Time: [Add event time]</li>
+                        <li>Location: [Add offline location, e.g., IIT Bombay]</li>
+                        <li>Duration: [Add duration, e.g., 3 hours]</li>
+                        <li>Cost: [Add fee, e.g., ₹500]</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_4"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+          </div>
+        </section>
+        <svg style="position: absolute; width: 0; height: 0;">
+              <defs>
+                 <filter id="blurFilter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+                 </filter>
+              </defs>
+        </svg>
+        {% include "main/footer.html" %}
+    </div>
+</div>
+<script  src="{% static 'js/script.js' %}" type="module"></script>
+<script src="{% static 'js/main.js' %}" type="module"></script>
+<script type="text/javascript" src="{% static 'js/gsap-3.12.5/package/dist/all.js' %}"  ></script>
+<script src="{% static 'js/splitting.min.js' %}" type="module"></script>
+</body>
+{% endblock %}
+</html>

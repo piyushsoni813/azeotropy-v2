@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AZEOID Registration Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .azeoid {
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            padding: 10px;
+            background: #e0f7e9;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AZEOID Registration Successful</h2>
+        <p>Dear {{ name }},</p>
+        <p>Congratulations! Your registration for AZeotropy is successful.</p>
+        
+        <div class="azeoid">Your AZEOID: <strong>{{ azeoid }}</strong></div>
+
+        <p>For any inquiries, feel free to contact our Media PR Managers:</p>
+        <p>📞 <strong>Harshdeep Kaushal</strong> - +91 91228 94555 | 📧 harshdeep.azeotropy@gmail.com</p>
+        <p>📞 <strong>Geet Israni</strong> - +91 63771 63636 | 📧 geet.azeotropy@gmail.com</p>
+
+        <p>We look forward to seeing you at the event!</p>
+
+        <div class="footer">
+            <p>Best regards,</p>
+            <p><strong>AZeotropy Team</strong></p>
+        </div>
+    </div>
+</body>
+</html>

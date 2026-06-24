@@ -1,0 +1,60 @@
+{% include "main/header.html" %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy2024-25</title> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>.introtext, .introtext .char {visibility: hidden;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+           <section id="home" class="grid place-content-center h-screen bg-fixed">
+              <div class="gap-5 p-0">
+                 <div class="grid px-5 pt-5 place-content-center introtext">
+                    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 192" fill-rule="evenodd" clip-rule="evenodd" class=" fill-white azeoLogo">
+                       <path d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269" />
+                    </svg>
+                 </div>
+                 <div class="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black big-shoulders-text tracking-tighter introtext break-normal uppercase text-white">Schedule</div>
+              </div>
+           </section>
+           <svg style="position: absolute; width: 0; height: 0;">
+              <defs>
+                 <filter id="blurFilter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+                 </filter>
+              </defs>
+           </svg>
+           <section id="about" class="py-32 lg:mx-28">
+              <svg class="hidden">
+                 <defs>
+                    <filter id="goo-1">
+                       <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+                       <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  
+                          0 1 0 0 0  
+                          1 0 1 0 0  
+                          0 0 0 13 -6" result="goo"></feColorMatrix>
+                       <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+                    </filter>
+                 </defs>
+              </svg>
+              <h2 data-filter="goo-1" class="size-large end font-1 text-left  instrument-serif-regular tracking-tight blur-element subpixel-antialiased text-6xl md:text-9xl mb-20 mx-5 sm:mx-10">Will Be Updated Soon!</h2>
+        </section>
+        {% include "main/footer.html" %}
+    </div>
+</div>
+<script src="{% static 'js/script.js' %}" type="module"></script>
+<script src="{% static 'js/main.js' %}" type="module"></script>
+<script type="text/javascript" src="{% static 'js/gsap-3.12.5/package/dist/all.js' %}"></script>
+<script src="{% static 'js/splitting.min.js' %}" type="module"></script>
+</body>
+{% endblock %}
+</html>

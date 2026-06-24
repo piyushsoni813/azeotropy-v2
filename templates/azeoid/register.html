@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="lemonade">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZEOID Registration</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body class="bg-base-200">
+
+    <div class="hero min-h-screen bg-cover bg-center bg-no-repeat">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+            <!-- Registration Info -->
+            <div class="text-center lg:text-left max-w-lg">
+                <h1 class="text-5xl text-primary font-bold m-4">AZEOID</h1>
+                <h2 class="text-3xl font-bold m-4">Register Now!</h2>
+                <p class="text-lg m-4">
+                    Get ready to participate in exciting events, workshops, and competitions of AZeotropy. 
+                    Register your <strong>AZeo ID</strong> today and be a part of this amazing experience!
+                </p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="card bg-base-100 w-full max-w-md shadow-xl">
+                <form class="card-body" method="POST">
+                    {% csrf_token %}
+
+                    <!-- Full Name -->
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Full Name</span></label>
+                        {{ form.name }}
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Email</span></label>
+                        {{ form.email }}
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Phone Number</span></label>
+                        {{ form.phone_number }}
+                    </div>
+
+                    <!-- College/University -->
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">College/University</span></label>
+                        {{ form.college_name }}
+                    </div>
+
+                    <!-- Year of Study -->
+                    <div class="form-control">
+                        <label class="label"><span class="label-text">Year of Study</span></label>
+                        {{ form.year_of_study }}
+                    </div>
+
+                    <!-- Error Messages -->
+                    {% if form.errors %}
+                        <div class="alert alert-error p-2 mt-4">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <p class="text-sm text-red-500">{{ error }}</p>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <!-- Submit Button -->
+                    <div class="form-control mt-6">
+                        <button class="btn btn-primary w-full" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Popups -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const successMessage = "{{ success_message|escapejs }}";
+            const errorMessage = "{{ error_message|escapejs }}";
+
+            if (successMessage) {
+                alert(successMessage); // Success popup
+            }
+            if (errorMessage) {
+                alert(errorMessage); // Error popup
+            }
+        });
+    </script>
+
+</body>
+</html>

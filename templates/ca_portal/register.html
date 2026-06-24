@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="cmyk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/registration01.css' %}">
+    <title>Registration</title>
+</head> 
+<body>
+
+<div class="p-6 py-20 sm:p-24 lg:p-40 xl:p-72">
+    <form action="{% url 'ca_portal:register' %}" method="post" class="backdrop-blur-md border-2 border-base-100 p-8 lg:p-24 xl:p-36 rounded-3xl shadow-2xl text-base-100 content-center items-center align-items">
+        {% csrf_token %}
+        <div class="">
+            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 192" fill-rule="evenodd"
+                clip-rule="evenodd" class="fill-current text-white mb-12">
+                <path
+                    d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269" />
+            </svg>
+            <h2 class="text-4xl font-semibold leading-7">Personal Information</h2>
+    
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="sm:col-span-3">
+                    <label for="{{ form.first_name.id_for_label }}" class="block text-xl leading-6 drop-shadow-2xl">{{ form.first_name.label }}</label>
+                    <div class="mt-2">
+                        {{ form.first_name}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-3">
+                    <label for="{{ form.last_name.id_for_label }}" class="block text-xl leading-6">{{ form.last_name.label }}</label>
+                    <div class="mt-2">
+                        {{ form.last_name}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-6">
+                    <label for="{{ form.email.id_for_label }}" class="block text-xl leading-6">{{ form.email.label }}</label>
+                    <div class="mt-2">
+                        {{ form.email}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-3">
+                    <label for="{{ form.phone_number.id_for_label }}" class="block text-xl leading-6">{{ form.phone_number.label }}</label>
+                    <div class="mt-2">
+                        {{ form.phone_number}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-3">
+                    <label for="{{ form.alternate_phone_number.id_for_label }}" class="block text-xl leading-6">{{ form.alternate_phone_number.label }}</label>
+                    <div class="mt-2">
+                        {{ form.alternate_phone_number }}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-4">
+                    <label for="{{ form.college.id_for_label }}" class="block text-xl leading-6 text-shadow-sm">{{ form.college.label }}</label>
+                    <div class="mt-2">
+                        {{ form.college}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-2">
+                    <label for="{{ form.current_year.id_for_label }}" class="block text-xl leading-6">{{ form.current_year.label }}</label>
+                    <div class="mt-2">
+                        {{ form.current_year}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-full">
+                    <label for="{{ form.permanent_address.id_for_label }}" class="block text-xl leading-6">{{ form.permanent_address.label }}</label>
+                    <div class="mt-2">
+                        {{ form.permanent_address}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-3">
+                    <label for="{{ form.pincode.id_for_label }}" class="block text-xl leading-6">{{ form.pincode.label }}</label>
+                    <div class="mt-2">
+                        {{ form.pincode}}
+                    </div>
+                </div>
+            
+                <div class="sm:col-span-3">
+                    <label for="{{ form.state.id_for_label }}" class="block text-xl leading-6">{{ form.state.label }}</label>
+                    <div class="mt-2">
+                        {{ form.state}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-10">
+                <button type="submit" value="Register" class="btn btn-info btn-wide text-base-100 text-md">Submit</button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+</body>
+</html>

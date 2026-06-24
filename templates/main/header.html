@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="lemonade">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy2024-25</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>.introtext, .introtext .char {visibility: hidden;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-sans">
+    <header class="navbar glass sticky top-0 z-50">
+        <div class="navbar-start">
+           <div class="dropdown">
+              <label tabindex="0" class="btn btn-ghost lg:hidden">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                 </svg>
+              </label>
+              <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'schedule' %}">Schedule</a></li>
+               <li><a href="{% url 'competitions' %}">Competitions</a></li>
+               <li><a href="{% url 'events' %}">Events</a></li>
+               <li><a href="{% url 'workshop' %}">Workshops</a></li>
+               <li><a href="{% url 'sponsor' %}">Sponsors</a></li>
+               <li><a href="{% url 'team' %}">Team</a></li>
+               <li><a href="./blogs/blogs" >Blogs</a></li>
+              </ul>
+           </div>
+           <a class="btn btn-ghost text-xl">
+              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 192" fill-rule="evenodd" clip-rule="evenodd" class="fill-current">
+                 <path d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269" />
+              </svg>
+              <span class="lg:ml-2 lexend-tera tracking-tighter">AZeotropy</span>
+           </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+         <ul class="menu menu-horizontal px-1 ">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'schedule' %}">Schedule</a></li>
+            <li><a href="{% url 'competitions' %}">Competitions</a></li>
+            <li><a href="{% url 'events' %}">Events</a></li>
+            <li><a href="{% url 'workshop' %}">Workshops</a></li>
+            <li><a href="{% url 'sponsor' %}">Sponsors</a></li>
+            <li><a href="{% url 'team' %}">Team</a></li>
+         </ul>
+      </div>
+        <div class="navbar-end gap-5">
+           <input type="checkbox" value="business" class="checkbox theme-controller" />
+           <a href="https://docs.google.com/forms/d/e/1FAIpQLScPr50BkzotKEhGkMWR0wkoD7Ka7I34fOG_WyMCrMwlpjjmPg/viewform?pli=1" class="btn btn-neutral lg:mr-2 ">Accommodation Portal</a>
+        </div>
+     </header>
+</body>
+</html>

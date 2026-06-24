@@ -1,0 +1,94 @@
+{% include "main/header.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy2024-25</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>.introtext, .introtext .char {visibility: hidden;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        .blue-line {
+            position: relative;
+            display: inline-block;
+        }
+
+        .blue-line::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 4px; /* Adjust thickness */
+            background-color: blue;
+            position: absolute;
+            bottom: -10px; /* Adjust spacing */
+            left: 0;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-4xl blue-line">Title Sponsor</div>
+              <a href="https://www.ril.com/" target="_blank">
+              <img class="h-72 py-10 bg-contain bg-center reliance-bg"
+              src="{% static 'pics/logos/reliance.png' %}" />
+            </div>
+
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-4xl blue-line">Co-Title Sponsor</div>
+              <a href="https://alkylamines.com/" target="_blank">
+              <img class="h-72 py-10 bg-contain bg-center"
+              src="{% static 'pics/logos/alkyl amines.png' %}" />
+            </div>
+
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-4xl blue-line">Sustainability Partner</div>
+              <a href="https://jayfinechem.com/" target="_blank">
+              <img class="h-72 py-10 bg-contain bg-center"
+              src="{% static 'pics/logos/Jay-Finechem.webp' %}" />
+            </div>
+
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-4xl blue-line">In Association With</div>
+              <a href="https://www.godeepak.com/" target="_blank">
+              <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/Deepak.png' %}" />
+            </div>
+
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-4xl blue-line">Eco-Engineering Partner</div>
+              <a href="https://www.epsiloncarbon.com/" target="_blank">
+              <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/epsilon.png' %}" />
+            </div>
+
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-4xl blue-line">Fueled-by Partner</div>
+              <a href="https://iocl.com/" target="_blank">
+              <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/indianoil.png' %}" />
+            </div>
+
+            <div class="flex flex-col items-center justify-center mt-24">
+              <div class="big-shoulders-text text-6xl blue-line">Media Partners</div>
+                <a href="https://www.amarujala.com" target="_blank">
+                    <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/amarujala.png' %}" />
+                </a>
+              <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/chemicalindustry.png' %}"/>
+              <!-- <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/cisthetha.png' %}" /> -->
+              <!-- <img class="h-72 py-10 bg-contain bg-center" src="{% static 'pics/logos/chemicalmarket.png' %}" /> -->
+            </div>
+            {% include "main/footer.html" %}
+      </div>
+    </div>
+    <script src="{% static 'js/script.js' %}" type="module"></script>
+    <script src="{% static 'js/main.js' %}" type="module"></script>
+    <script type="text/javascript" src="{% static 'js/gsap-3.12.5/package/dist/all.js' %}"></script>
+    <script src="{% static 'js/splitting.min.js' %}" type="module"></script>
+</body>
+{% endblock %}
+</html>

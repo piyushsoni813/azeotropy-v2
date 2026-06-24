@@ -1,0 +1,513 @@
+{% include "main/header.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy2024-25</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>.introtext, .introtext .char {visibility: hidden;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+      <section
+          id="home"
+          class="grid place-content-center h-screen bg-local bg-cover"
+        >
+          <div class="gap-5 p-0">
+            <div class="grid px-5 pt-5 place-content-center introtext">
+              <svg
+                width="200"
+                height="200"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 300 192"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                class="fill-white azeoLogo"
+              >
+                <path
+                  d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269"
+                />
+              </svg>
+            </div>
+            <div
+              class="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black big-shoulders-text tracking-tighter introtext break-normal uppercase text-white"
+            >
+              Events
+            </div>
+          </div>
+        </section>
+        <svg style="position: absolute; width: 0; height: 0">
+          <defs>
+            <filter id="blurFilter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+            </filter>
+          </defs>
+        </svg>
+        <section id="about" class="py-32 lg:mx-28">
+          <svg class="hidden">
+            <defs>
+              <filter id="goo-1">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="0"
+                  result="blur"
+                ></feGaussianBlur>
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0
+                           0 1 0 0 0
+                           1 0 1 0 0
+                           0 0 0 13 -6"
+                  result="goo"
+                ></feColorMatrix>
+                <feComposite
+                  in="SourceGraphic"
+                  in2="goo"
+                  operator="atop"
+                ></feComposite>
+              </filter>
+            </defs>
+          </svg>
+          <h2
+            data-filter="goo-1"
+            class="size-large end font-1 text-left text-6xl md:text-9xl instrument-serif-regular tracking-tight mb-20 blur-element subpixel-antialiased md:px-5"
+          >
+            ChemVision Lecture Series
+          </h2>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-3 mb-12 mx-5 gap-5 place-items-stretch"
+          >
+            <!-- Prof. Genki Yoshikawa -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl Genki-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-wide blur-element jost"
+            >
+              ChemVision by Prof. Genki Yoshikawa
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-2 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                Immerse yourself into lecture series "ChemVision" by AZeotropy. The
+                first speaker in this session is Prof. Genki Yoshikawa. He is a Professor and Group Leader at the Center
+                for Functional Sensor & Actuator (CFSN), National Institute for Materials Science (NIMS), Japan
+              </p>
+              <br />
+              <p
+                class="text-base leading-relaxed mb-2 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                He will present an insightful topic, "Pioneering the Future of Artificial Olfaction: Integrating Multiple Sensing
+                and Data Analysis Approaches for Agriculture, Healthcare, and Beyond," discussing advanced sensor technologies,
+                data-driven odor detection, and their transformative applications across industries
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch silkscreen-regular"
+                onclick="my_modal_1.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_1" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">ChemVision by Prof. Genki Yoshikawa</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_1"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          Dive into the ChemVision lecture series with AZeotropy as we welcome Prof. Genki Yoshikawa, a
+                          leading expert from the National Institute for Materials Science (NIMS), Japan
+                        </li>
+                        <li>
+                          Topic: In his talk, "Pioneering the Future of Artificial Olfaction: Integrating Multiple Sensing and Data
+                          Analysis Approaches for Agriculture, Healthcare, and Beyond," he will explore how advanced sensor technologies
+                          and data-driven odor detection are revolutionizing industries like agriculture and healthcare. Discover the
+                          future of artificial olfaction and its transformative potential.
+                        </li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_1"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Speaker: Prof. Genki Yoshikawa</li>
+                        <li>Date: 22/03/2025</li>
+                        <!--<li>Time: [Add event time]</li>-->
+                        <li>Location: IIT Bombay</li>
+                        <li>Duration: 1 hour</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_1"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+
+            <!-- Prof. Sangtae Kim -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl Suryakant-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              ChemVision by Dr. Suryakant Gupta
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                Immerse yourself into the lecture series "ChemVision" by AZeotropy.
+                The next speaker in this session is Prof. Suryakant B. Gupta. Prof. Suryakant B. Gupta
+                is a Scientific Officer-G at the Institute for Plasma Research, Gandhinagar, with a PhD in Information and
+                Communication Technology from KIT, Germany, and over 30 years of research experience in space and atomic
+                energy labs globally
+              </p>
+              <br />
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                He will present an insightful topic, "Pervasive Use of Plasma Technology for Water Disinfection Applications,"
+                discussing innovative plasma-based solutions for water purification, their challenges, and
+                the potential for scalable, sustainable impact.
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch silkscreen-regular"
+                onclick="my_modal_2.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_2" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">ChemVision by Dr. Suryakant Gupta </h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_2"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          Explore ChemVision by AZeotropy with Prof. Suryakant B. Gupta, Scientific Officer-G at the Institute for Plasma Research,
+                          Gandhinagar. With a PhD from KIT, Germany, and 30 years in global space and atomic labs, he presents "Pervasive Use of Plasma
+                          Technology for Water Disinfection Applications."
+                        </li>
+                        <li>
+                          Topic: This session dives into groundbreaking plasma-based water purification, addressing innovative techniques, challenges, and
+                          scalable, sustainable solutions for a cleaner future
+                        </li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_2"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Speaker: Prof. Suryakant B. Gupta</li>
+                        <li>Date: 22/03/2025</li>
+                        <!--<li>Time: [Add event time]</li>-->
+                        <li>Location: IIT Bombay</li>
+                        <li>Duration: 1 hour</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_2"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+
+            <!-- Dr. Asit Kumar Das -->
+            <div
+              class="lg:row-span-2 rounded-xl blur-element border border-white aspect-square w-auto place-self-stretch"
+            >
+              <div
+                class="h-max aspect-square bg-contain bg-center rounded-xl Maulik-bg"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 text-left text-2xl md:text-3xl tracking-tight blur-element jost"
+            >
+              ChemVision by Maulik Mehta
+            </div>
+            <div
+              class="lg:col-span-2 text-justify blur-element font-semibold place-items-stretch"
+            >
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                Excited for the next ChemVision lecture by AZeotropy! Maulik Mehta,
+                CEO & Executive Director of Deepak Nitrite Ltd, a leading Indian chemical manufacturing company,
+                where he drives innovation and growth in the chemical industry With a Bachelor’s degree from the University of Liverpool
+                and a Master’s from Columbia University, he blends expertise in business development and organizational psychology to
+                shape sustainable industry practices
+              </p>
+              <br />
+              <p
+                class="text-base leading-relaxed mb-4 blur-element place-self-stretch"
+                data-splitting
+                data-effect8
+              >
+                An influential leader, Maulik has also made his mark as a music composer in Gujarati cinema, showcasing his creative versatility
+              </p>
+              <br />
+              <button
+                class="btn mx-3 px-10 btn-accent text-base leading-relaxed mb-4 blur-element place-self-stretch silkscreen-regular"
+                onclick="my_modal_3.showModal()"
+              >
+                Read More
+              </button>
+              <dialog id="my_modal_3" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">ChemVision by Maulik Mehta</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted">
+                    <input
+                      type="radio"
+                      name="tabs_3"
+                      role="tab"
+                      class="tab"
+                      aria-label="About"
+                      checked
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>
+                          Get ready for the next ChemVision lecture by AZeotropy, spotlighting Maulik Mehta, CEO & Executive Director
+                          of Deepak Nitrite Ltd. Leading a top Indian chemical manufacturing firm, he drives innovation and growth in the
+                          industry
+                        </li>
+                        <li>
+                          Topic: With a Bachelor’s from the University of Liverpool and a Master’s from Columbia University,
+                          Maulik fuses business development and organizational psychology to promote sustainable practices.
+                          Beyond his corporate success, he’s an influential music composer in Gujarati cinema, highlighting his creative versatility
+                        </li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_3"
+                      role="tab"
+                      class="tab"
+                      aria-label="Event Details"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Date: 22/03/2025</li>
+                        <!--<li>Time: [Add event time]</li>-->
+                        <li>Location: IIT Bombay</li>
+                        <li>Duration: 1 hour</li>
+                      </ul>
+                    </div>
+                    <input
+                      type="radio"
+                      name="tabs_3"
+                      role="tab"
+                      class="tab"
+                      aria-label="Contact"
+                    />
+                    <div
+                      role="tabpanel"
+                      class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+                    >
+                      <ul>
+                        <li>Harshil Sapra</li>
+                        <li>+91 81409 35061</li>
+                        <li>harshil.azeotropy@gmail.com</li>
+                        <br>
+                        <li>Vaishnavi Singh</li>
+                        <li>+91 84097 02480</li>
+                        <li>vaishnavi.azeotropy@gmail.com</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+          </div>
+        </section>
+        <svg style="position: absolute; width: 0; height: 0">
+          <defs>
+            <filter id="blurFilter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+            </filter>
+          </defs>
+        </svg>
+        <section id="about" class="py-32 lg:px-28 bg-base-300">
+          <svg class="hidden">
+            <defs>
+              <filter id="goo-1">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="0"
+                  result="blur"
+                ></feGaussianBlur>
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0
+                           0 1 0 0 0
+                           1 0 1 0 0
+                           0 0 0 13 -6"
+                  result="goo"
+                ></feColorMatrix>
+                <feComposite
+                  in="SourceGraphic"
+                  in2="goo"
+                  operator="atop"
+                ></feComposite>
+              </filter>
+            </defs>
+          </svg>
+          <h2
+            data-filter="goo-1"
+            class="size-large end font-1 text-left text-6xl md:text-9xl instrument-serif-regular tracking-tight mb-20 blur-element subpixel-antialiased md:px-5"
+          >
+            Panel Discussions
+          </h2>
+          <h2 data-filter="goo-1" class="size-large end font-1 text-left  instrument-serif-regular tracking-tight subpixel-antialiased text-6xl md:text-6xl mb-20 mx-5 sm:mx-10">
+              Will Be Updated Soon!</h2>
+        </section>
+        <svg style="position: absolute; width: 0; height: 0;">
+              <defs>
+                 <filter id="blurFilter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="50"></feGaussianBlur>
+                 </filter>
+              </defs>
+        </svg>
+        {% include "main/footer.html" %}
+    </div>
+</div>
+<script  src="{% static 'js/script.js' %}" type="module"></script>
+<script src="{% static 'js/main.js' %}" type="module"></script>
+<script type="text/javascript" src="{% static 'js/gsap-3.12.5/package/dist/all.js' %}"  ></script>
+<script src="{% static 'js/splitting.min.js' %}" type="module"></script>
+</body>
+{% endblock %}
+</html>

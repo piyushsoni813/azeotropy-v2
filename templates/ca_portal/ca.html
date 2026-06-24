@@ -1,0 +1,746 @@
+{% load static %}
+
+<!-- browser-sync start --server --files "*.css" -->
+<!-- npm run dev -->
+<!-- live-server dist -->
+<!-- npx tailwindcss -i ./src/inputCAorig.css -o ./dist/outputCAorig.css --watch -->
+<!DOCTYPE html>
+<html lang="en" data-theme="forest">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA-Portal</title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <script src="{% static 'assets/js/cahome.js' %}"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+</head>
+
+<body>
+
+
+    <header class="navbar bg-base-100 sticky top-0 z-50">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
+                    <li><a onclick="scrollToSection('home')">Home</a></li>
+                    <li><a onclick="scrollToSection('about')">About</a></li>
+                    <li><a onclick="scrollToSection('perks')">Perks</a></li>
+                    <li><a onclick="scrollToSection('responsibilities')">Responsibilities</a></li>
+                    <!-- <li><a onclick="scrollToSection('leaderboard')">Leaderboard</a></li> -->
+                    <li><a onclick="scrollToSection('contactus')">Contact Us</a></li>
+                    <!-- <li>
+                        <details close>
+                            <summary>Themes</summary>
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Light" value="cymk" />
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Dark" value="forest" />
+                                    </li>
+                                </ul>
+                        </details>
+                    </li> -->
+                </ul>
+            </div>
+            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 192" fill-rule="evenodd"
+                clip-rule="evenodd" class="fill-current lg:ml-6">
+                <path
+                    d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269" />
+            </svg>
+            <a class="text-xl ml-0 font-aquire lg:ml-2">AZeotropy</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 font-aventa">
+                <li><a onclick="scrollToSection('home')">Home</a></li>
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('perks')">Perks</a></li>
+                <li><a onclick="scrollToSection('responsibilities')">Responsibilities</a></li>
+                <!-- <li><a onclick="scrollToSection('leaderboard')">Leaderboard</a></li> -->
+                <li><a onclick="scrollToSection('contact')">Contact Us</a></li>
+                <!-- <li>
+                    <details>
+                        <summary>Themes</summary>
+                        <ul class="bg-base-200 rounded-t-none p-2">
+                            <li>
+                                <input type="radio" name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Light" value="cymk" />
+                            </li>
+                            <li>
+                                <input type="radio" name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Dark" value="forest" />
+                            </li>
+                        </ul>
+                    </details>
+                </li> -->
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a href="{% url 'ca_portal:register' %}" class="btn btn-secondary lg:mr-2 font-aventa">Registration</a>
+        </div>
+    </header>
+
+
+    <!-- <p class="text-center">Hi</p> -->
+
+    <div id="home" class="hero min-h-screen"
+        style="background-image: url(https://www.azeotropy.org/static/assets/img/CA_Portal_Bg_image.jpg);">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content max-w-max text-neutral-content text-left ">
+            <div class="mx-6 my-6">
+                <div class="mb-4 text-2xl lg:text-3xl lg:mt-12 font-aventa">Welcome to AZeotropy's</div>
+                <div class="mb-5 text-4xl sm:text-9xl font-bold uppercase lg:tracking-tight font-aventablack">
+                    Campus<br>Ambassador<br>Program
+                </div>
+                <div class="mb-6 text-1xl lg:text-2xl font-aventa">
+                    Its is all about CA's, let's together take it to the next level
+                </div>
+                <button class="btn btn-secondary font-aventa"> <a href="{% url 'ca_portal:register' %}"> REGISTER NOW </a></button>
+            </div>
+        </div>
+    </div>
+<div id="about" class="flex justify-center flex-col lg:flex-row bg-primary text-primary-content items-center">
+    <div class="grow basis-3/5 lg:ml-28 m-8 lg:m-0">
+        <video muted class="rounded-lg aspect-video" controls autoplay>
+            <source
+                src="/static/assets/img/video.mp4"
+                type="video/mp4"
+            />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- lg:my-14 lg:mr-28 m-8 sm:m-16 md:m-28 -->
+    <div class="grow basis-2/5 lg:m-0 lg:ml-8 lg:mr-28 m-8 lg:my-14 sm:mx-16 md:mx-28">
+        <div class="text-5xl font-bold pb-4 font-aventablack">
+            About AZeotropy
+        </div>
+        <div class="pb-8">
+            AZeotropy is an interesting blend of various intriguing competitions, lecture series, panel discussions, exhibitions, workshops, and many fun-with-learning events. We are a non-profit organization aimed to bridge the gap between students, industry, academia, and promote it at a national level. To fulfill its promise to encompass the whole field of chemical engineering, AZeotropy has been working toward its purpose ever since its inception! We are excited to conduct all the competitions and events in offline mode after 2 years.
+        </div>
+        <div class="text-5xl font-bold pb-4 font-aventablack">
+            About Campus Ambassador Program
+        </div>
+        <div class="pb-8">
+            AZeotropy gives you a chance to showcase your leadership and organizational skills through our CAMPUS AMBASSADOR PROGRAM. Campus Ambassadors represent AZeotropy in their respective colleges and their responsibility is to connect with the students who are enthusiastic to participate in various events, competitions and workshops conducted by AZeotropy. Registrations of students from all colleges with programs in chemical, petrochemical, and petroleum engineering are welcome.
+        </div>
+        <button class="btn btn-secondary font-aventa mb-6 shadow-xl" href="/register">Get Started</button>
+    </div>
+</div>
+
+    <!-- Statistics -->
+    <div class="flex flex-wrap lg:flex-row justify-center bg-base-200 p-4">
+        <div class="card hover:bg-secondary hover:text-secondary-content bg-neutral text-neutral-content justify-center w-96 m-4 p-4 shadow-xl">
+            <div class="card-body">
+                <h1 class="card-title update" data-target="300">0</h1>
+                <p>College Ambassadors</p>
+                <div class="card-actions"></div>
+            </div>
+        </div>
+    
+        <div class="card hover:bg-secondary hover:text-secondary-content bg-neutral text-neutral-content justify-center w-96 m-4 p-4 shadow-xl">
+            <div class="card-body">
+                <h1 class="card-title update" data-target="200">0</h1>
+                <p>Colleges</p>
+                <div class="card-actions"></div>
+            </div>
+        </div>
+    
+        <div class="card hover:bg-secondary hover:text-secondary-content bg-neutral text-neutral-content justify-center w-96 m-4 p-4 shadow-xl">
+            <div class="card-body">
+                <h1 class="card-title update" data-target="11000">0</h1>
+                <p>Footfall</p>
+                <div class="card-actions"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Benifits -->
+    <div id="perks" class="bg-base-200 flex justify-center items-center flex-col">
+        <h1 class="text-5xl uppercase px-4 pt-4 tracking-tight font-semibold text-base-content font-aventablack">Perks</h1>
+        <h1 class="lg:text-xl p-4 text-base-content font-aventa">Why become a Campus Ambassador?</h1>
+    </div>
+
+    <div class="flex flex-wrap lg:flex-row justify-center bg-base-200 pb-6" >
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold" id="apple">
+            Ambassador of the year
+            <h1 class="text-base mt-4 font-normal">We will recognize and appreciate all the effort that you will put in.
+                One will be
+                felicitated with the
+                prestigious Ambassador of the year award for his/her exceptional work throughout the tenure.</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Free
+            workshops
+            <h1 class="text-base mt-4 font-normal">Every CA can attend any 2 workshops that will be organised by
+                AZeotropy (online) absolutely free of cost. Why not learn something valuable and interesting?</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content  items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Certificates of Complition
+            <h1 class="text-base mt-4 font-normal">Being actively indulged in AZeotropy, throughout the year gets you a
+                Certificate of Organization</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Appreciation
+            <h1 class="text-base mt-4 font-normal">Bridge the gap between your college participants, authorities and
+                team AZeotropy by the exchange of queries and information. Put your best efforts to publicize AZeotropy
+                to end up in Top 10 and receive a Certificate of Appreciation.</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Freebies
+            <h1 class="text-base mt-4 font-normal">Top 10 Campus Ambassadors get free T-shirts as a souvenir to cherish
+                the memories that will be made together.</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Networking Opportunities
+            <h1 class="text-base mt-4 font-normal">Create a network among your peers that will help build your
+                character, build confidence and gain a perspective</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Internship Opportunities
+            <h1 class="text-base mt-4 font-normal">Gain the invaluable chance to collaborate with leading chemical
+                enterprises, while immersing yourself in the wealth of knowledge shared by top-level executives.</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold" id="apple">
+            Industrial Visits
+            <h1 class="text-base mt-4 font-normal">Bridge the gap between the industry and you. Get a chance to visit
+                the industries and learn from professionals.</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold" id="apple">
+            Interpersonal Skills
+            <h1 class="text-base mt-4 font-normal">Get ahead of the crowd by strengthening your communication and
+                management skills</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content  items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold " id="apple">
+            Carrier Guidance
+            <h1 class="text-base mt-4 font-normal">Each Campus Ambassador will receive monthly career guidance and resume-building sessions aimed at enhancing their job prospects and professional development</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content  items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold "id="apple">
+            Social Media Recognition
+            <h1 class="text-base mt-4 font-normal">The most dedicated and top-performing Campus Ambassadors will be prominently featured on our official social media platforms, recognizing their exceptional contributions</h1>
+        </div>
+        <div class="card bg-neutral text-neutral-content  items-start text-2xl w-96 m-4 p-12 shadow-xl font-semibold "id="apple">
+            Future Event Planning Role
+            <h1 class="text-base mt-4 font-normal">Provide an exclusive opportunity for top ambassadors to join the organizing committee for next year's festival, offering leadership experience.</h1>
+        </div>
+    </div>
+
+
+    <div class="bg-base-200 ">
+        <div class="flex mx-4 min-h-64 rounded-lg justify-center place-items-center" style="background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), 
+            url('https://www.azeotropy.org/static/assets/img/cta-bg.jpg') 
+            center center / cover no-repeat fixed;">
+            <div class="flex flex-col text-white text-3xl justify-center items-center p-24 font-aventa">
+                Be You. Be Unstoppable. Be an AZeotropy Ambassador.
+                <button class="btn btn-secondary btn-wide mt-12" onclick="window.location.href='indexFM.html';">REGISTER NOW</button>
+            </div>
+        </div>
+    </div>
+
+<!-----------responsbilities---------->
+    <div id="responsibilities" class="px-10 pt-10 pb-5 bg-base-200 flex flex-col">
+        <div class="flex justify-center items-center text-4xl sm:text-5xl uppercase px-4 pt-4 tracking-tight font-semibold font-aventablack">
+            Responsibilities</div>
+        <h2 class="flex justify-center items-center mb-10 p-4 lg:text-xl text-base-content font-aventa">Your role as a campus
+            ambassador
+        </h2>
+        <section class="duties" id="duties">
+            <div class="duties_container">
+              
+              <!-- Flip Card 1 -->
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front duty4 bg-info text-info-content">
+                    <br>
+                    <h2>Publicity</h2>
+                    <div class="icon">
+                      <lord-icon src="https://cdn.lordicon.com/eszyyflr.json" trigger="loop" 
+                        colors="primary:#ffffff,secondary:#ffffff" stroke="70" style="width:100%;height:100%">
+                      </lord-icon>
+                    </div>
+                  </div>
+                  <div class="flip-card-back duty4 px-4">
+                    <span>Publicize AZeotropy and its latest activities in your colleges through innovative online
+                      solutions and social media.</span>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Flip Card 2 -->
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front duty1 bg-info text-info-content">
+                    <br>
+                    <h2>Bring Participation</h2>
+                    <div class="icon">
+                      <lord-icon src="https://cdn.lordicon.com/uukerzzv.json" trigger="loop" 
+                        colors="primary:#ffffff,secondary:#ffffff" style="width:100%;height:100%">
+                      </lord-icon>
+                    </div>
+                  </div>
+                  <div class="flip-card-back duty1 px-4">
+                    <span>Bring in your college's involvement in various online AZeotropy events and competitions. The higher the number of participation from your college, the more benefits you will receive.</span>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Flip Card 3 -->
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front duty2 px-4 bg-info text-info-content">
+                    <br>
+                    <h2>Conduct-Competitions</h2>
+                    <div class="icon">
+                      <lord-icon src="https://cdn.lordicon.com/ssdupzsv.json" trigger="loop" 
+                        colors="primary:#ffffff,secondary:#ffffff" stroke="70" style="width:100%;height:100%">
+                      </lord-icon>
+                    </div>
+                  </div>
+                  <div class="flip-card-back duty2 px-4">
+                    <span>Work with the AZeotropy core team to organize competitions at your universities.</span>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Flip Card 4 -->
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front duty3 bg-info text-info-content">
+                    <br>
+                    <h2>Familiarize Others</h2>
+                    <div class="icon">
+                      <lord-icon src="https://cdn.lordicon.com/zpxybbhl.json" trigger="loop" 
+                        colors="primary:#ffffff,secondary:#ffffff" stroke="70" style="width:100%;height:100%">
+                      </lord-icon>
+                    </div>
+                  </div>
+                  <div class="flip-card-back duty3 px-4">
+                    <span>Familiarize participants from your college with the online environments being used and solve their technical issues.</span>
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+          </section>
+        </div>
+    </div>
+
+    <!-- Leaderboard 
+    <div id="leaderboard" class="bg-base-200 flex flex-col w-auto p-8 lg:px-72 ">
+        <div class="flex justify-center items-center text-5xl uppercase px-4 pt-4 tracking-tight font-semibold font-aventablack rounded-md">Leaderboard</div>
+        <h2 class="flex justify-center items-center mb-10 text-xl p-4 text-base-content font-aventa">See where you stand</h2>
+    
+        <div class="leaderboard flex flex-col">
+            
+            <div class="leaderboard-item bg-neutral text-neutral-content rounded-md lg:rounded-2xl shadow-2xl">
+                <div class="rank font-aventablack">1</div>
+                <img src="gold-medal.png" alt="Gold Medal">
+                <div class="name font-aventablack">Player Name</div>
+                <div class="stars">
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                </div>
+                <div class="score">2500</div>
+            </div>
+    
+            
+            <div class="leaderboard-item bg-neutral text-neutral-content rounded-md lg:rounded-2xl shadow-2xl">
+                <div class="rank font-aventablack">2</div>
+                <img src="silver-medal.png" alt="Silver Medal">
+                <div class="name font-aventablack">Player Name</div>
+                <div class="stars">
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <div class="score">2449</div>
+            </div>
+    
+            
+            <div class="leaderboard-item bg-neutral text-neutral-content rounded-md lg:rounded-2xl shadow-2xl">
+                <div class="rank font-aventablack">3</div>
+                <img src="bronze-medal.png" alt="Bronze Medal">
+                <div class="name font-aventablack">Player Name</div>
+                <div class="stars">
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <div class="score">2400</div>
+            </div>
+    
+            
+            <div class="leaderboard-item bg-neutral text-neutral-content rounded-md lg:rounded-2xl shadow-2xl">
+                <div class="rank font-aventablack">4</div>
+                <img src="gold-medal.png" alt="Gold Medal">
+                <div class="name font-aventablack">Player Name</div>
+                <div class="stars">
+                    <span class="star full">&#9733;</span>
+                    <span class="star full">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <div class="score">250</div>
+            </div>
+    
+            
+            <div class="leaderboard-item bg-neutral text-neutral-content rounded-md lg:rounded-2xl shadow-2xl">
+                <div class="rank font-aventablack">5</div>
+                <img src="gold-medal.png" alt="Gold Medal">
+                <div class="name font-aventablack">Player Name</div>
+                <div class="stars">
+                    <span class="star full">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <div class="score">150</div>
+            </div>
+        </div>
+    </div>
+    ---------------------------------------->
+    
+
+
+    <div class="p-6 sm:p-8 md:p-14 lg:p-24 bg-base-200 flex flex-col">
+        <div class="flex justify-center items-center text-5xl uppercase px-4 tracking-tight font-semibold font-aventablack">
+            Testimonial</div>
+        <h2 class="flex justify-center items-center mb-10 text-xl p-4 text-base-content font-aventa">See what our campus
+            ambassadors have
+            to say
+        </h2>
+        <div class="flex flex-wrap items-start justify-center p-2 sm:p-4 md:p-12 lg:py-8 lg:px-4 rounded-xl bg-base-300 gap-6">
+            <div class="flex flex-col max-w-md lg:max-w-sm rounded-xl p-6 bg-base-100">
+                <div class="font-semibold mb-5 text-xl">
+                    A Catalyst for Growth
+                </div>
+                <div class="mb-3">As a Campus Ambassador for AZeotropy, IIT Bombay, I helped shape India’s largest chemical engineering symposium. This role enhanced my management, networking, and communication skills while bringing workshops and competitions to my college.<br> AZeotropy was a catalyst for both personal growth and professional development
+                </div>
+                <div class="flex flex-row">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img src="{% static 'assets/img/ca-image/amit.jpg' %}" />
+                        </div>
+                    </div>
+                    <div class="px-4 grid content-between">
+                        <div class="font-semibold">Amit kumar</div>
+                        <div class="font-thin">CA at MNNIT Allahabad</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col max-w-md lg:max-w-md rounded-xl p-6 bg-base-100">
+                <div class="font-semibold mb-5 text-xl">
+                    From Participant to Organizer
+                </div>
+                <div class="mb-3">As a Campus Ambassador for Azeotropy, I connected with students from 350+ colleges, participating in competitions, discussions, and workshops.<br> This experience sharpened my problem-solving skills and deepened my understanding of chemical engineering and industry practices, fueling my passion for learning and innovation
+                </div>
+                <div class="flex flex-row">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img src="{% static 'assets/img/ca-image/anjali.jpg' %}" />
+                        </div>
+                    </div>
+                    <div class="px-4 grid content-between">
+                        <div class="font-semibold">Anjali shinde</div>
+                        <div class="font-thin">CA at Pravara Rural Engineering College</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col max-w-md lg:max-w-xl rounded-xl p-6 bg-base-100">
+                <div class="font-semibold mb-5 text-xl">
+                    Building Connections and Innovation Through Azeotropy
+                </div>
+                <div class="mb-3">Being the Campus Ambassador for Azeotropy, IIT Bombay, was an exciting and fulfilling experience. It helped me grow as a leader, connect with amazing people, and bring workshops that really benefited my peers.<br><br>I'm grateful for the opportunity, as it has inspired my confidence and opened exciting possibilities in my chemical engineering journey
+                </div>
+                <div class="flex flex-row">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img src="{% static 'assets/img/ca-image/anjali.jpg' %}" />
+                        </div>
+                    </div>
+                    <div class="px-4 grid content-between">
+                        <div class="font-semibold">Andriya Manoj</div>
+                        <div class="font-thin">CA at Amal Jyothi college of engineering</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col max-w-md lg:max-w-screen-sm rounded-xl p-6 bg-base-100">
+                <div class="font-semibold mb-5 text-xl">
+                    Transformative Journey as a Campus Ambassador
+                </div>
+                <div class="mb-3">AZeotropy, IIT Bombay was a transformative experience that fueled my passion for innovation and  managing skills . As  a CA I gained invaluable insights into the world of chemical engineering and startup culture. The platform provided a unique opportunity to collaborate with talented individuals, learn from my college as well as from different colleges and it also helped me to develop solutions to real-world problems. And the other main benifits which I found that boosted myself was the importance of interdisciplinary collaboration ,Effective problem-solving and idea validation and also  leadership  qualities and adaptability in the face of challenges<br><br>Hoping we can create a better year this year..
+                </div>
+                <div class="flex flex-row">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img src="{% static 'assets/img/ca-image/yashwanth.jpg' %}" />
+                        </div>
+                    </div>
+                    <div class="px-4 grid content-between">
+                        <div class="font-semibold">Yaswanth Sreedharan</div>
+                        <div class="font-thin">CA at Amal Jyothi college of engineering</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col max-w-md lg:max-w-screen-md rounded-xl p-6 bg-base-100">
+                <div class="font-semibold mb-5 text-xl">
+                    Empowering Growth Through Campus Ambassadorship
+                </div>
+                <div class="mb-3">My experience as a Campus Ambassador for Azeotropy IIT Bombay was incredibly enriching. I was responsible for promoting their events at my university through emails, WhatsApp messages, LinkedIn posts, and direct interactions with students. This role gave me valuable insights into how organizations function and helped me manage tasks efficiently. Balancing academic responsibilities with event promotion deadlines was challenging, but with good time management, I successfully overcame it, supported by both the Azeotropy team and my university.<br><br>The work culture encouraged creativity, giving me the freedom to present ideas and boosting my confidence through appreciation. This role refined my skills in event management, communication, and teamwork. Overall, it was an amazing experience that helped me realize the unique potential every individual holds.
+                </div>
+                <div class="flex flex-row">
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img src="{% static 'assets/img/ca-image/dhruv.jpg' %}" />
+                        </div>
+                    </div>
+                    <div class="px-4 grid content-between">
+                        <div class="font-semibold">Jenil Abhangi</div>
+                        <div class="font-thin">CA at Dharmsinh Desai University</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="contact" class="pt-10 px-10 bg-base-200 flex flex-col">
+        <div class="flex justify-center items-center text-5xl uppercase px-4 tracking-tight font-semibold font-aventablack">
+            Contact Us</div>
+        <h2 class="flex justify-center items-center mb-10 text-xl p-4 text-base-content font-aventa">Need a hand? Or a high
+            five? Here's how to reach us.
+        </h2>
+    </div>
+
+    <div class="flex lg:flex-row flex-col justify-center items-center px-10 pb-10 bg-base-200 gap-10">
+
+        <div class="max-w-96 shadow-xl p-10 rounded-3xl bg-neutral text-neutral-content">
+            <div class="rounded-xl  justify-center items-center">
+                <div class="avatar">
+                    <div class="rounded-full mb-4">
+                        <img src="{% static 'assets/img/ca-image/harshdeep.jpg' %}" />
+                    </div>
+                </div>
+                <div class="flex justify-center items-center pb-3 font-black text-3xl text-center font-aventablack">Harshdeep Kaushal</div>
+                <div class="flex justify-center items-center pb-1 font-light text-xl">Media & PR Manager</div>
+                <div class="flex justify-center items-center pb-1 font-light ">
+                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current mr-2">
+                        <path
+                            d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z">
+                        </path>
+                    </svg>
+                    <a href="mailto:harshdeep.azeotropy@gmail.com"> harshdeep.azeotropy@gmail.com </a>
+                </div>
+                <div class="flex justify-center items-center font-light ">+91 91228-94555</div>
+                <div class="divider divider-accent"></div>
+                <div class="flex justify-center gap-4">
+                    <button class="btn btn-accent rounded-xl shadow-xl" onclick="window.location.href='https://x.com/Harsh_dkaushal'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="btn btn-accent rounded-xl shadow-xl" onclick="window.location.href='https://www.instagram.com/harshdeepkaushal/';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="w-6 h-6 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                    </button>
+                    <button class="btn btn-accent rounded-xl shadow-xl" onclick="window.location.href='http://www.linkedin.com/in/harshdeepkaushal/';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="w-6 h-6 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                        </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-96 shadow-xl p-10 rounded-3xl bg-neutral text-neutral-content">
+            <div class="rounded-xl  justify-center  items-stretch">
+                <div class="avatar">
+                    <div class="rounded-full mb-4">
+                        <img src="{% static 'assets/img/ca-image/geet.jpg' %}" />
+                    </div>
+                </div>
+                <div class="flex justify-center items-center pb-3 font-black text-3xl text-center font-aventablack">Geet Israni</div>
+                <div class="flex justify-center items-center pb-1 font-light text-xl">Media & PR Manager</div>
+                <div class="flex justify-center items-center pb-1 font-light">
+                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current mr-2">
+                        <path
+                            d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z">
+                        </path>
+                    </svg>
+                    <a href="mailto:harshdeep.azeotropy@gmail.com"> geet.azeotropy@gmail.com </a>
+                </div>
+                <div class="flex justify-center items-center font-light">+91 63771-63636</div>
+                <div class="divider divider-accent"></div>
+                <div class="flex justify-center gap-4">
+                    <button class="btn btn-accent rounded-xl shadow-xl" onclick="window.location.href='http://www.linkedin.com/in/harshdeepkaushal/';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-accent rounded-xl shadow-xl" onclick="window.location.href='http://www.linkedin.com/in/harshdeepkaushal/';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="w-6 h-6 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                    </button>
+                    <button class="btn btn-accent rounded-xl shadow-xl" onclick="window.location.href='http://www.linkedin.com/in/harshdeepkaushal/';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="w-6 h-6 fill-current" viewBox="0 0 16 16"> 
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Footer -->
+    <footer id="footer" class="footer bg-base-300 text-base-content p-10">
+        <nav>
+            <h6 class="footer-title">AZeo ID</h6>
+            <a href="indexFM.html" class="link link-hover">The AZeo_Id will help you to register<br>
+                for the upcoming events, workshops,<br>
+                and competitions of AZeotropy.</a>
+            <a href="indexFM.html" class="link font-semibold">Create an AZeo ID here →</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Quick Links</h6>
+            <a href="https://www.azeotropy.org/events" class="link link-hover">Events</a>
+            <a href="https://azeotropyiitbblog.wordpress.com/" class="link link-hover">Blog</a>
+            <a href="https://www.azeotropy.org/" class="link link-hover">About</a>
+            <a href="indexFM.html" class="link link-hover">Join Us</a>
+            <a onclick="scrollToSection('contact')" class="link link-hover">Contact Us</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Contact Us</h6>
+            <div class="flex gap-3 mb-3">
+                <p>&#9762;</p>
+                <div>
+                    <p class="font-semibold">Harshdeep Kaushal</p>
+                    <p>
+                        <a class="text-xs link link-hover"
+                            href="mailto:harshdeepkaushal@azeotropy.org">harshdeep.azeotropy@gmail.com</a>
+                        <br />
+                        <span class="text-xs">+91-91228 94555</span>
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <p>&#9762;</p>
+                <div>
+                    <p class="font-semibold">Geet Israni</p>
+                    <p>
+                        <a class="text-xs link link-hover"
+                            href="mailto:geetisrani@azeotropy.org">geet.azeotropy@gmail.com</a>
+                        <br />
+                        <span class="text-xs">+91-63771 63636</span>
+                    </p>
+                </div>
+            </div>
+        </nav>
+    </footer>
+    <footer class="footer bg-base-300 text-base-content border-base-100 border-t px-10 py-4">
+        <nav class="grid-flow-col items-center w-auto">
+
+            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 192" fill-rule="evenodd"
+                clip-rule="evenodd" class="fill-current">
+                <path
+                    d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269" />
+            </svg>
+
+            <p>
+                <span class="font-bold">Azeotropy '25</span>
+                <br />
+                <span>The Chemical Engineering Symposium</span>
+            </p>
+        </nav>
+
+        <nav class="lg:place-self-center lg:justify-self-start gap-x-4 gap-y-2 text-base-content">
+            <div class="grid grid-flow-col gap-x-1 justify-center place-self-center content-end">Made with <svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="grid content-end mt-1" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                </svg> by Piyush Soni & Avitesh Murmu
+            </div>
+        </nav>
+
+        <nav class="md:place-self-center md:justify-self-end">
+            <div class="grid grid-flow-col gap-4">
+                <a href="https://www.linkedin.com/company/azeotropy/posts/?feedView=all" target="linkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="w-6 h-6 fill-current" viewBox="0 0 16 16"> 
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                        </svg>
+                </a>
+                <a href="https://www.instagram.com/iitbombay_azeotropy/?hl=en" target="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="w-6 h-6 fill-current" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCuUhMNqBAYUplxgrhGkEGWQ/featured" target="youtube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/AZeotropy/" target="facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

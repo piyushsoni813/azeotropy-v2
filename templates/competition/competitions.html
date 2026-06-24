@@ -1,0 +1,413 @@
+{% include "main/header.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZeotropy2024-25</title> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>.introtext, .introtext .char {visibility: hidden;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Ballet:opsz@16..72&family=Big+Shoulders+Text:wght@100..900&family=Doto:wght@100..900&family=Erica+One&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Tera:wght@100..900&family=Rubik+Glitch&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+      <section
+          id="home"
+          class="grid place-content-center h-screen bg-local bg-cover"
+        >
+          <div class="gap-5 p-0">
+            <div class="grid px-5 pt-5 place-content-center introtext">
+              <svg
+                width="200"
+                height="200"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 300 192"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                class="fill-white azeoLogo"
+              >
+                <path
+                  d="M77.705 96H147V8m5 131v48h143l-26-32h-83l47-47-19-24h-62l29 24m-34-7H73.765l-6.356 8H147m-89.791 13H147v-8H63.469M6 187h141v-60H53.269"
+                />
+              </svg>
+            </div>
+            <div
+              class="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black big-shoulders-text tracking-tight introtext break-normal uppercase text-white"
+            >
+              Competitions
+            </div>
+          </div>
+        </section>
+        <section id="about" class="py-32 lg:mx-28">
+          <div class="grid grid-cols-1 lg:grid-cols-3 mb-12 mx-5 gap-y-16 gap-x-2">
+            <!-- Chem-E-Cross -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">Chem-E-Cross</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl chem-e-cross-bg"></div>
+              <div class="blur-element">Test your engineering knowledge with this series of crosswords based on engineering concepts.</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_6.showModal()">Read More</button>
+              <dialog id="my_modal_6" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize worth ₹15,000</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_6" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>ChemEcross is an exciting online crossword quiz designed to test your chemical engineering knowledge! Compete with students nationwide, tackle mind-bending puzzles, and race against time to claim victory.</li>
+                        <li>With prizes up to ₹15,000, this is your chance to showcase your expertise, outsmart your rivals, and prove you're the best. Think you have what it takes? Join the challenge now!</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_6" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>This is an individual participation competition.</li>
+                        <li>Students from only chemical engineering background can participate in this competition.</li>
+                        <li>You have to guess all the words in the crossword using the hints within 12 hrs (11 A.M. to 11 P.M.). The faster you solve, the higher you score.</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_6" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>In case of any queries contact:</li>
+                        <li>Shivani (Competitions Head) - +917668572809</li>
+                        <li>Pratik Goswami (Competitions Head) - +919537143126</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- Chempreneur -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">Chempreneur</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl predictioneer-bg"></div>
+              <div class="blur-element">Entrepreneurship competition based on Chemical engineering.</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_2.showModal()">Read More</button>
+              <dialog id="my_modal_2" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize worth TBD</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_2" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Chempreneur is a national-level competition where your entrepreneurial vision for sustainable solutions in fields like Energy-Efficient Manufacturing and Sustainable Packaging Materials can shine.</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_2" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Students can participate in a group with 1-4 members.</li>
+                        <li>Students from all engineering backgrounds can participate in this competition.</li>
+                        <li>Timeline:</li>
+                        <li>Round 1: Pitch Round (Online) Submission deadline 25th December</li>
+                        <li>Round 2: Final Q&A (Offline on day of symposium) on 22nd March</li>
+                        <li>Registration form: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_9BtI4z2bHjmd2fOd6EKX5c4HbHM5oaqO8a7aAB4KC6foUg/viewform?usp=sharing" target="_blank">Click here</a></li>
+                        <li>Submission form: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw8RJRVT3JCLQJwLEu9oudluiSlr7FQDkgXX9YVhjXih-KWg/viewform?usp=sharing" target="_blank">Click here</a></li>
+                        <li>Problem statement: <a href="https://drive.google.com/file/d/1r01CIY-sn1bugEWja-_tNdstcOfYp5Ms/view?usp=drivesdk" target="_blank">Click here</a></li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_2" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>In case of any queries contact:</li>
+                        <li>Shivani (Competitions Head) - +917668572809</li>
+                        <li>Pratik Goswami (Competitions Head) - +919537143126</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- Chem-O-Philia -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">Chem-O-Philia</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl chem-o-philia-bg"></div>
+              <div class="blur-element">A National level Chemical Engineering Quiz Competition.</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_4.showModal()">Read More</button>
+              <dialog id="my_modal_4" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize Pool: ₹1,00,000</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_4" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>A thrilling quiz that challenges your knowledge, accuracy, and speed in Chemical Engineering.</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_4" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>First round is zonal round conducted college wise and finale is conducted on the day of symposium at IIT Bombay.</li>
+                        <li>Problem Statement: <a href="https://drive.google.com/file/d/1W6Wcx6nINcHhlyY6O1d7_RcGtMSq4SrM/view?usp=sharing" target="_blank">Click here</a></li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_4" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>In case of any queries contact:</li>
+                        <li>Shivani (Competitions Head) - +917668572809</li>
+                        <li>Pratik Goswami (Competitions Head) - +919537143126</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- IDP -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">IDP</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl idp-bg"></div>
+              <div class="blur-element">Apply theoretical concepts to solve real-life industrial problems.</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_3.showModal()">Read More</button>
+              <dialog id="my_modal_3" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize worth ₹50,000</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_3" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>IDP is one the flagship competitions of AZeotropy. Take the challenge to design an innovative, efficient and scalable process. Solve this real-world challenge, compete for exciting prizes worth ₹50,000/- and make an impact on sustainability.</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_3" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Timeline:</li>
+                        <li>Round 1: Submission deadline 6th March</li>
+                        <li>Round 2: On the day of symposium</li>
+                        <li>Problem statement: <a href="https://drive.google.com/file/d/1Z_SGiEUHqKspDHWhw833qljSKUc2RrcA/view?usp=sharing" target="_blank">Click here</a></li>
+                        <li>Registration Link: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAECj8jjYmIzPY1QlwVDkf8p2Xg9-0rZeSLKp9OAzIcp8bkQ/viewform?usp=header" target="_blank">Click here</a></li>
+                        <li>Submission link: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdS7ZPL8oLc8un5F5zbjt05TIy5b4xKUvOwbVBWRm7GBEQp5Q/viewform?usp=dialog" target="_blank">Click here</a></li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_3" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>In case of any queries contact:</li>
+                        <li>Shivani (Competitions Head) - +917668572809</li>
+                        <li>Pratik Goswami (Competitions Head) - +919537143126</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- Predictioneer -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">Predictioneer</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl predictioneer-bg"></div>
+              <div class="blur-element">Dynamic ML to predict water availability in waterbodies</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_9.showModal()">Read More</button>
+              <dialog id="my_modal_9" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize worth TBD</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_9" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>In Predictioneer, create a machine learning model to forecast critical metrics like deaths, cases, and CFR. Are you ready to innovate?</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_9" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Timeline:</li>
+                        <li>Submission deadline is 31st January</li>
+                        <li>Problem Statement: <a href="https://drive.google.com/file/d/1knj8fqFJxZn4BmCr5Pp6qCK1rqEMpazk/view?usp=sharing" target="_blank">Click here</a></li>
+                        <li>Registration link: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZcGmitf6vDZn_9v0jBPexh9TvZ99JApiICjEp_TyACxlTAw/viewform?usp=sharing" target="_blank">Click here</a></li>
+                        <li>Submission link: <a href="https://docs.google.com/forms/d/e/1FAIpQLScJPcq09qpjGxkT67bVHRQ1DfDcGWBo3jQs5sedO11RSfR2CA/viewform?usp=dialog" target="_blank">Click here</a></li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_9" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>In case of any queries contact:</li>
+                        <li>Shivani (Competitions Head) - +917668572809</li>
+                        <li>Pratik Goswami (Competitions Head) - +919537143126</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- AZeoRover -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">AZeoRover</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl azeorover-bg"></div>
+              <div class="blur-element">AZeoCube challenges the students to develop a portable water purifier system.</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_7.showModal()">Read More</button>
+              <dialog id="my_modal_7" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize worth TBD</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_7" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>AZeorover is a two-stage competition involving abstract submission and making of physical prototype of a rover fueled by non-conventional, chemical energy sources.</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_7" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Timeline:</li>
+                        <li>Abstract submission deadline: 8th February, 2025</li>
+                        <li>Final round: 22nd March, 2025</li>
+                        <li>Problem Statement: <a href="https://drive.google.com/file/d/1iyiqaGuxyXGQIPveT23tsernMlk5rjfo/view" target="_blank">Click here</a></li>
+                        <li>Registration & Submission link: <a href="https://forms.gle/mmGzYb8sKCZYuNBUA" target="_blank">Click here</a></li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_7" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Gayatri Moghe (Competitions Head)</li>
+                        <li>Contact: +91 9579482530</li>
+                        <li>Email: <a href="mailto:gayatri.azeotropy@gmail.com">gayatri.azeotropy@gmail.com</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- Optimizer -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">Optimizer</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl optimizer-bg"></div>
+              <div class="blur-element">Push your coding skills to the limit and optimize your way to victory</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_5.showModal()">Read More</button>
+              <dialog id="my_modal_5" class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                  <h3 class="text-lg font-bold">Prize worth TBD</h3>
+                  <p class="py-4"></p>
+                  <div role="tablist" class="tabs tabs-lifted text-left">
+                    <input type="radio" name="tabs_5" role="tab" class="tab" aria-label="About" checked />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Optimizer, as name suggests, is a competition in which the participants have to find the minimum of an unknown function based on optimization techniques.</li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_5" role="tab" class="tab" aria-label="Event Details" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Timeline:</li>
+                        <li>Registration deadline: 2nd March, 2025</li>
+                        <li>Report submission deadline: 9th March, 2025</li>
+                        <li>Final Presentation: 22nd March, 2025</li>
+                        <li>Problem Statement: <a href="https://docs.google.com/document/d/1mD-2OntMBdEmvQVOxXTrO5O9f76S4JRGlcupDKoroUk/edit?usp=sharing" target="_blank">Click here</a></li>
+                        <li>Registration Link: <a href="https://forms.gle/TXEos9yn5P3C5uZ7A" target="_blank">Click here</a></li>
+                        <li>Report Submission Link: <a href="https://forms.gle/1MuVQxdcFQZSYcoU8" target="_blank">Click here</a></li>
+                      </ul>
+                    </div>
+                    <input type="radio" name="tabs_5" role="tab" class="tab" aria-label="Contact" />
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                      <ul>
+                        <li>Gayatri Moghe (Competitions Head)</li>
+                        <li>Contact: +91 9579482530</li>
+                        <li>Email: <a href="mailto:gayatri.azeotropy@gmail.com">gayatri.azeotropy@gmail.com</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog"><button class="btn">Close</button></form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+        
+            <!-- Cipher -->
+            <div class="grid lg:row-span-2 rounded-xl gap-5 place-content-stretch py-5 px-10">
+              <div class="blur-element uppercase text-3xl tracking-widest">Cipher</div>
+              <div class="blur-element h-max aspect-square bg-contain bg-center rounded-xl cipher-bg"></div>
+              <div class="blur-element">A mind-boggling online cryptic hunt based on themes from popular culture.</div>
+              <button class="blur-element btn btn-primary w-40 place-self-center mt-5" onclick="my_modal_1.showModal()">Read More</button>
+              <dialog id="my_modal_1" class="modal">
+                  <div class="modal-box w-11/12 max-w-5xl">
+                      <h3 class="text-lg font-bold">Prize worth 15,000</h3>
+                      <p class="py-4"></p>
+                      <div role="tablist" class="tabs tabs-lifted text-left">
+                          <input type="radio" name="tabs_1" role="tab" class="tab" aria-label="About" checked />
+                          <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                              <ul>
+                                  <li>Cipher is a fun quiz on a particular topic, checking general knowledge of the participants.</li>
+                              </ul>
+                              <a href="https://piyushsoni813.github.io/cipher/latest.html" class="btn btn-secondary mt-4">Portal Link</a>
+                          </div>
+                          <input type="radio" name="tabs_1" role="tab" class="tab" aria-label="Event Details" />
+                          <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                              <ul>
+                                  <li>Date: 16 March 2025</li>
+                                  <li>Duration: 11 AM to 11 PM</li>
+                                  <li>Location: Online</li>
+                              </ul>
+                          </div>
+                          <input type="radio" name="tabs_1" role="tab" class="tab" aria-label="Contact" />
+                          <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                              <ul>
+                                  <li>Gayatri Moghe (Competitions Head)</li>
+                                  <li>Contact: +91 9579482530</li>
+                                  <li>Email: <a href="mailto:gayatri.azeotropy@gmail.com">gayatri.azeotropy@gmail.com</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="modal-action">
+                          <form method="dialog"><button class="btn">Close</button></form>
+                      </div>
+                  </div>
+              </dialog>
+            </div>
+          </div>
+        </section>
+         {% include "main/footer.html" %}
+    </div>
+</div>
+<script  src="{% static 'js/script.js' %}" type="module"></script>
+<script src="{% static 'js/main.js' %}" type="module"></script>
+<script type="text/javascript" src="{% static 'js/gsap-3.12.5/package/dist/all.js' %}"  ></script>
+<script src="{% static 'js/splitting.min.js' %}" type="module"></script>
+<script>
+   document.querySelectorAll('.modal').forEach(modal => {
+     modal.addEventListener('show', function() {
+       const aboutTab = this.querySelector('input[aria-label="About"]');
+       if (aboutTab) {
+         aboutTab.checked = true; // Force "About" tab to be active on modal open
+       }
+     });
+   });
+ </script>
+</body>
+{% endblock %}
+</html>
