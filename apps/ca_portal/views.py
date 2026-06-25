@@ -1,173 +1,155 @@
-from django.contrib.auth.models import User
-from django.shortcuts import render,redirect
-from .forms import RegisterForm
-from .forms import Azeo_idForm
-from .models import Extendeduser
-from .models import Azeo_id_user
-from django.http import HttpResponse
+import logging
 
-from django.core.mail import send_mail
+from django.contrib.auth.models import User
+from django.core.mail import EmailMultiAlternatives
+from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 from django.conf import settings
-from django.core.mail import get_connection, EmailMultiAlternatives, send_mail
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.core.exceptions import ValidationError
+
+from .forms import RegisterForm, Azeo_idForm
+from .models import Extendeduser, Azeo_id_user
+
+logger = logging.getLogger(__name__)
+
 
 def Registration(request):
-    return render(request,'ca_portal/ca.html')
+    return render(request, 'ca_portal/ca.html')
+
 
 def user_register(request):
-    template = 'ca_portal/register.html'  # Template for rendering the form
+    template = 'ca_portal/register.html'
 
-    if request.method == 'POST':
-        # Create a form instance and populate it with data from the request
-        form = RegisterForm(request.POST)
-        
-        # Check whether it's valid
-        if form.is_valid():
-            # Check if the email already exists
-            if Extendeduser.objects.filter(email=form.cleaned_data['email']).exists():
-                return render(request, template, {
-                    'form': form,
-                    'error_message': 'Email already exists.'
-                })
-            else:
-                # Create an Extendeduser instance
-                extendeduser = Extendeduser()
-                extendeduser.first_name = form.cleaned_data['first_name']
-                extendeduser.last_name = form.cleaned_data['last_name']
-                extendeduser.phone_number = form.cleaned_data['phone_number']
-                extendeduser.alternate_phone_number = form.cleaned_data['alternate_phone_number']
-                extendeduser.college = form.cleaned_data['college']
-                extendeduser.current_year = form.cleaned_data['current_year']
-                extendeduser.permanent_address = form.cleaned_data['permanent_address']
-                extendeduser.state = form.cleaned_data['state']
-                extendeduser.email = form.cleaned_data['email']
-                extendeduser.pincode = form.cleaned_data['pincode']
+    if request.method != 'POST':
+        return render(request, template, {'form': RegisterForm()})
 
-                # Save the user data
-                extendeduser.save()
+    form = RegisterForm(request.POST)
 
-                # Prepare the email
-                subject = "Successfully registered for AZeotropy Campus Ambassador"
-                name1 = str(extendeduser.first_name).title()
-                html_message = render_to_string("ca_portal/mail.html", {'name': name1})
-                message = strip_tags(html_message)
-                to_email = extendeduser.email
+    if not form.is_valid():
+        return render(request, template, {'form': form})
 
-                connection = get_connection()
-                connection.open()
-                email = EmailMultiAlternatives(subject, message, 'no-reply-registration@azeotropy.org', [to_email])
-                email.attach_alternative(html_message, 'text/html')
-                email.send()
-                connection.close()
+    email = form.cleaned_data['email']
 
-                # email = EmailMultiAlternatives("Urgently 2 packets of sutta required", "Dear OC, As a former web manager me Daddy Jones, with emotional support from Diddy hereby request you to urgently send two packets of sutta to room 209 along with your female design manager.", 'suttarequired@azeotropy.org', ["22b0389@iitb.ac.in"])
+    # Guard against duplicate emails — the unique constraint on the model is
+    # the real enforcement, but checking here gives a friendlier message.
+    if Extendeduser.objects.filter(email=email).exists():
+        return render(request, template, {
+            'form': form,
+            'error_message': 'This email is already registered as a Campus Ambassador.',
+        })
 
-                # Success message
-                success_message = 'You have successfully registered on CA portal'
-                return render(request, "ca_portal/ca.html", {'message': success_message})
-    
-    # If not a POST request, display the empty form
-    else:
-        form = RegisterForm()
-    
-    return render(request, template, {'form': form})
+    try:
+        ca = Extendeduser.objects.create(
+            first_name=form.cleaned_data['first_name'],
+            last_name=form.cleaned_data['last_name'],
+            phone_number=form.cleaned_data['phone_number'],
+            alternate_phone_number=form.cleaned_data.get('alternate_phone_number', ''),
+            college=form.cleaned_data['college'],
+            current_year=form.cleaned_data['current_year'],
+            permanent_address=form.cleaned_data['permanent_address'],
+            state=form.cleaned_data['state'],
+            email=email,
+            pincode=form.cleaned_data.get('pincode', ''),
+        )
+    except IntegrityError:
+        # Concurrent submission slipped past the exists() check above.
+        return render(request, template, {
+            'form': form,
+            'error_message': 'This email is already registered. Please check your inbox for the confirmation email.',
+        })
+
+    # Registration is saved. Send confirmation email — but a mail failure
+    # must NOT undo a successful registration, so we handle it gracefully.
+    _send_confirmation(ca)
+
+    return render(request, 'ca_portal/ca.html', {
+        'success_message': f"Welcome aboard, {ca.first_name}! You've been registered as a Campus Ambassador. Check your inbox for a confirmation email.",
+    })
+
+
+def _send_confirmation(ca):
+    """Send the CA welcome email. Logs on failure; does not raise."""
+    try:
+        name = ca.first_name.title()
+        html_body = render_to_string('ca_portal/mail.html', {'name': name})
+        text_body = strip_tags(html_body)
+
+        msg = EmailMultiAlternatives(
+            subject='Welcome to AZeotropy — Campus Ambassador Registration Confirmed',
+            body=text_body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[ca.email],
+        )
+        msg.attach_alternative(html_body, 'text/html')
+        msg.send()
+    except Exception:
+        # Don't crash the request — the person is registered.
+        # Log so the team can follow up manually if needed.
+        logger.exception(
+            "Confirmation email failed for CA registration id=%s email=%s",
+            ca.pk, ca.email,
+        )
+
 
 def AZeo_id(request):
-    # if this is a POST request we need to process the form data
-        template = 'main_website/register_user.html'
+    template = 'main_website/register_user.html'
 
-        if request.method == 'POST':
-            # create a form instance and populate it with data from the request:
-            form = Azeo_idForm(request.POST)
-            # check whether it's valid:
-            if form.is_valid():
+    if request.method != 'POST':
+        return render(request, template, {'form': Azeo_idForm()})
 
-                if Azeo_id_user.objects.filter(email=form.cleaned_data['email']).exists():
-                    return render(request, template, {
-                        'form': form,
-                        'error_message': 'Email already exists.'
-                    })
+    form = Azeo_idForm(request.POST)
 
-
-
-                else:
-                    # print('hellow world')
-                    # Create the user:
-
-                    # user = User.objects.create_user(
-                    #     # form.cleaned_data['username'],
-                    #     form.cleaned_data['email']
-
-                    # )
-
-                    extendeduser = Azeo_id_user()
-                    extendeduser.first_name = form.cleaned_data['first_name']
-                    extendeduser.last_name = form.cleaned_data['last_name']
-                    extendeduser.phone_number = form.cleaned_data['phone_number']
-                    extendeduser.alternate_phone_number = form.cleaned_data['alternate_phone_number']
-                    extendeduser.college = form.cleaned_data['college']
-                    extendeduser.current_year = form.cleaned_data['current_year']
-                    extendeduser.permanent_address = form.cleaned_data['permanent_address']
-                    extendeduser.state = form.cleaned_data['state']
-                    extendeduser.email = form.cleaned_data['email']
-                    extendeduser.pincode = form.cleaned_data['pincode']
-                    Azeo_no =f"AZ-{extendeduser.first_name[:3].upper()}-{Azeo_id_user.objects.only('id').last().id+1}"
-                    extendeduser.azeo_id = Azeo_no
-                    # extendeduser.user = user
-                    extendeduser.save()
-
-
-
-
-
-                    subject = "Successfully created your AZeo ID "
-                    # message = f'congratulations {extendeduser.first_name}{extendeduser.last_name} have successfully registered on CA portal'
-                    to_email = extendeduser.email
-
-                    name1 = str(extendeduser.first_name).title()
-                    collegename = str(extendeduser.college).title()
-                    html_message = render_to_string("main_website/email.html",{'name':name1,'college':collegename,'AZeo_ID':Azeo_no})
-                    message = strip_tags(html_message)
-
-                    email3 = EmailMultiAlternatives(subject,
-                                message,
-                                'seemon@azeotropy.org',
-                                [to_email],
-                                )
-                    email3.attach_alternative(html_message,'text/html')
-
-                            # Generate PDF
-                    # pdf_buffer = generate_pdf({
-                    #     'first_name': extendeduser.first_name,
-                    #     'last_name': extendeduser.last_name,
-                    #     'azeo_id': Azeo_no
-                    # })
-                      # Attach PDF to the email
-                    # email3.attach('Visiting_Pass_Card.pdf', pdf_buffer.getvalue(), 'application/pdf')
-
-                    email3.send()
-
-                    # send_mail(
-                    #             subject,
-                    #             message,
-                    #             from_email,
-                    #             [to_email],
-                    #             fail_silently=False,
-                    #         )
-                    # extendeduser.save()
-                    message = 'You have successfully registered on CA portal'
-                    return render(request, "main_website/confirmation_page.html",{'AZeo_ID':Azeo_no})
-
-
-
-
-                    # redirect to home page:
-                    #return redirect('registration_ca:index')
-
-    # No post data availabe, let's just show the page.
-        else:
-            form = Azeo_idForm()
-
+    if not form.is_valid():
         return render(request, template, {'form': form})
+
+    if Azeo_id_user.objects.filter(email=form.cleaned_data['email']).exists():
+        return render(request, template, {
+            'form': form,
+            'error_message': 'Email already exists.',
+        })
+
+    extendeduser = Azeo_id_user(
+        first_name=form.cleaned_data['first_name'],
+        last_name=form.cleaned_data['last_name'],
+        phone_number=form.cleaned_data['phone_number'],
+        alternate_phone_number=form.cleaned_data.get('alternate_phone_number', ''),
+        college=form.cleaned_data['college'],
+        current_year=form.cleaned_data['current_year'],
+        permanent_address=form.cleaned_data['permanent_address'],
+        state=form.cleaned_data['state'],
+        email=form.cleaned_data['email'],
+        pincode=form.cleaned_data.get('pincode'),
+    )
+
+    # Safe ID generation: use the DB-assigned pk after save instead of
+    # reading last().id (which crashes on empty table and has race conditions).
+    extendeduser.save()
+    Azeo_no = f"AZ-{extendeduser.first_name[:3].upper()}-{extendeduser.pk}"
+    extendeduser.azeo_id = Azeo_no
+    extendeduser.save(update_fields=['azeo_id'])
+
+    try:
+        name = extendeduser.first_name.title()
+        college = extendeduser.college.title()
+        html_body = render_to_string('main_website/email.html', {
+            'name': name,
+            'college': college,
+            'AZeo_ID': Azeo_no,
+        })
+        msg = EmailMultiAlternatives(
+            subject='Your AZeo ID — AZeotropy',
+            body=strip_tags(html_body),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[extendeduser.email],
+        )
+        msg.attach_alternative(html_body, 'text/html')
+        msg.send()
+    except Exception:
+        logger.exception(
+            "AZeo ID email failed for id=%s email=%s",
+            extendeduser.pk, extendeduser.email,
+        )
+
+    return render(request, 'main_website/confirmation_page.html', {'AZeo_ID': Azeo_no})
